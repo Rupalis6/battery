@@ -10,7 +10,7 @@ from tensorflow.keras.models import load_model
 @st.cache_resource
 def load_assets():
     model = load_model("ann_model.h5", compile=False)[cite: 1, 2]
-    scaler = joblib.load("models/scaler.pkl")[cite: 1, 3]
+    scaler = joblib.load("scaler.pkl")[cite: 1, 3]
     return model, scaler
 
 model, scaler = load_assets()
