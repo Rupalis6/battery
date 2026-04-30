@@ -7,8 +7,13 @@ from tensorflow.keras.models import load_model
 
 # --- Initialization ---
 # Load model and scaler[cite: 2, 3]
-model = load_model("ann_model.h5", compile=False)
-scaler = joblib.load("scaler.pkl")
+@st.cache_resource
+def load_assets():
+    model = load_model("ann_model.h5", compile=False)[cite: 1, 2]
+    scaler = joblib.load("scaler.pkl")[cite: 1, 3]
+    return model, scaler
+
+model, scaler = load_assets()
 
 st.set_page_config(page_title="Battery SOC Monitor", layout="wide")
 st.title("🔋 Battery State of Charge (SOC) Dashboard")
